@@ -1,0 +1,57 @@
+// =============================================================================
+// WINDOW RULES & APPLICATION INTERCEPTIONS
+// =============================================================================
+
+// Work around WezTerm's initial configure dimensions bug
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Enforce floating layers for media popups
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"firefox$"#
+    open-maximized false
+}
+
+// Global aesthetic configuration for applications window geometry
+window-rule {
+    geometry-corner-radius 7
+    clip-to-geometry true
+}
+
+// Global Border Fix for transparent windows
+window-rule {
+    draw-border-with-background false
+}
+
+// Fix Steam notifications popping up in the center of the screen
+window-rule {
+    match app-id=r#"^[Ss]team$"# title=r#"^notificationtoasts"#
+    open-floating true
+    default-floating-position x=20 y=20 relative-to="bottom-right"
+    open-focused false
+}
+
+// Scratchpad
+window-rule {
+    match title="^scratchpad-term$"
+    open-floating true
+    
+    // Explicit sizing for the floating console
+    default-column-width { fixed 700; }
+    default-window-height { fixed 700; }
+
+    // Position
+    default-floating-position x=30 y=30 relative-to="top-right"
+
+    background-effect {
+        blur true
+        xray false 
+    }
+}

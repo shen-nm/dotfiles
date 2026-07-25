@@ -1,0 +1,170 @@
+// =============================================================================
+// KEYBINDINGS & GLOBAL HOTKEYS
+// =============================================================================
+
+binds {
+    // System Utilities
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+E     { quit; }
+    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+P     { power-off-monitors; }
+    Mod+Escape      allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Core Applications Launchpad
+    Mod+Return          hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+    Mod+Shift+Return    hotkey-overlay-title="Application Launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+E               hotkey-overlay-title="File Manager" { spawn "kitty" "yazi"; }
+    Mod+B               hotkey-overlay-title="Web Browser" { spawn "zen-browser"; }
+    Mod+N               hotkey-overlay-title="Notes" { spawn "obsidian"; }
+    Mod+V               { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+
+    // Media & Hardware Controls
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Mod+M                 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    Mod+Shift+Q           { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Mod+Shift+L           { spawn "noctalia" "msg" "session" "lock"; }
+    
+    // Window Management & Navigation Rules
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+    Mod+F              { maximize-column; }
+    Mod+Shift+F        { fullscreen-window; }
+    Mod+Ctrl+F         { expand-column-to-available-width; }
+    Mod+C              { center-column; }
+    Mod+Ctrl+C         { center-visible-columns; }
+    Mod+Shift+V        { toggle-window-floating; }
+    Mod+W              { toggle-column-tabbed-display; }
+
+    // Directional Window Focus (Vim keys + Arrows)
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    // Mod+H     { focus-column-left; }
+    // Mod+J     { focus-window-down; }
+    // Mod+K     { focus-window-up; }
+    // Mod+L     { focus-column-right; }
+
+    // Window Movement Controls
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+    // Mod+Ctrl+H     { move-column-left; }
+    // Mod+Ctrl+J     { move-window-down; }
+    // Mod+Ctrl+K     { move-window-up; }
+    // Mod+Ctrl+L     { move-column-right; }
+
+    // Column Group Operations
+    Mod+BracketLeft   { consume-or-expel-window-left; }
+    Mod+BracketRight  { consume-or-expel-window-right; }
+    Mod+Comma         { consume-window-into-column; }
+    Mod+Period        { expel-window-from-column; }
+
+    // Layout Sizing Presets & Sizing Tweaks
+    Mod+R       { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R  { reset-window-height; }
+    Mod+Minus   { set-column-width "-10%"; }
+    Mod+Equal   { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Workspace Navigation Loop
+    Mod+Page_Down       { focus-workspace-down; }
+    Mod+Page_Up         { focus-workspace-up; }
+    Mod+I               { focus-workspace-down; }
+    Mod+U               { focus-workspace-up; }
+    Mod+Ctrl+Page_Down  { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up    { move-column-to-workspace-up; }
+    Mod+Ctrl+I          { move-column-to-workspace-down; }
+    Mod+Ctrl+U          { move-column-to-workspace-up; }
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+I         { move-workspace-down; }
+    Mod+Shift+U         { move-workspace-up; }
+    Mod+Tab             { focus-workspace-previous; }
+
+    // Mouse & Touchpad Workspace Scrolling
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Multi-Monitor Hardware Binds
+    Mod+Shift+Ctrl+Left  { focus-monitor-left; }
+    Mod+Shift+Ctrl+Down  { focus-monitor-down; }
+    Mod+Shift+Ctrl+Up    { focus-monitor-up; }
+    Mod+Shift+Ctrl+Right { focus-monitor-right; }
+    // Mod+Shift+Ctrl+H     { focus-monitor-left; }
+    // Mod+Shift+Ctrl+J     { focus-monitor-down; }
+    // Mod+Shift+Ctrl+K     { focus-monitor-up; }
+    // Mod+Shift+Ctrl+L     { focus-monitor-right; }
+    Mod+Shift+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Right { move-column-to-monitor-right; }
+    // Mod+Shift+H     { move-column-to-monitor-left; }
+    // Mod+Shift+J     { move-column-to-monitor-down; }
+    // Mod+Shift+K     { move-column-to-monitor-up; }
+    // Mod+Shift+L     { move-column-to-monitor-right; }
+
+    // Direct Discrete Workspace Index Selection
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Integrated Native Screenshot Engine
+    Print       { screenshot; }
+    Ctrl+Print  { screenshot-screen; }
+    Alt+Print   { screenshot-window; }
+
+    // Noctalia Screenshot Engine
+    // Mod+Shift+S { spawn "noctalia" "msg" "screenshot-region"; }
+
+    // Swappy Screenshots
+    Mod+Shift+S { spawn "sh" "-c" r#"grim -g "$(slurp)" - | swappy -f -"#; }
+
+    // Scratchpad Binds
+    // Toggles the scratchpad terminal in and out of view
+    Mod+T { spawn "sh" "-c" r#"
+        if niri msg action focus-window --match title="^scratchpad-term$"; then
+            niri msg action move-window-to-workspace "scratchpad-hidden"
+        else
+            kitty -T scratchpad-term || alacritty -T scratchpad-term || foot -T scratchpad-term
+        fi
+    "#; }    
+}

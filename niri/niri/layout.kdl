@@ -1,0 +1,48 @@
+// =============================================================================
+// LAYOUT ENGINE, WINDOW GEOMETRY & STYLING
+// =============================================================================
+
+layout {
+    gaps 7
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off // Set to 'on' if you prefer an active boundary highlight ring
+        width 2
+    }
+
+    border {
+        on // Set to 'on' if you prefer static window outlines
+        width 2
+        inactive-color "#4d4d4d5a"
+    }
+
+    shadow {
+        // Toggle 'on' to enable active layer effects
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {
+        // Define system margins if building panels external to Noctalia
+    }
+}
+
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+environment {
+  QT_QPA_PLATFORMTHEME "qt6ct"
+}

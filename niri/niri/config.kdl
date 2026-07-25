@@ -1,0 +1,26 @@
+// =============================================================================
+// NIRI MASTER CONFIGURATION MANIFEST (Modular Architecture)
+// =============================================================================
+
+// Core System Integrations
+prefer-no-csd
+hotkey-overlay { skip-at-startup; }
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+animations { }
+
+// debug
+debug {
+    // Fixes immediate screenshare stream drops on Chromium/Electron apps
+    force-pipewire-invalid-modifier
+}
+
+// Component Modules Import Loop
+include "inputs.kdl"
+include "outputs.kdl"
+include "noctalia.kdl"
+include "layout.kdl"
+include "window-rules.kdl"
+include "startup.kdl"
+include "binds.kdl"
+include "cursor.kdl"
+

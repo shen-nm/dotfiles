@@ -1,0 +1,17 @@
+// =============================================================================
+// STARTUP DAEMONS & SUBSYSTEM INITIALIZATION (Clean Slate)
+// =============================================================================
+
+// Core Wayland Display & Session Sync
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "XDG_SESSION_DESKTOP=niri"
+spawn-at-startup "sh" "-c" "while ! busctl --user status org.gnome.Mutter.ScreenCast >/dev/null 2>&1; do sleep 0.2; done; pkill -f xdg-desktop-portal-gnome"
+
+// XWayland Compatibility Layer 
+spawn-at-startup "xwayland-satellite"
+
+// The Unified Shell Layer (Handles Bars, Wallpapers, Notifications, and Lockscreen)
+spawn-at-startup "noctalia"
+
+// Core Independent Services
+// spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"

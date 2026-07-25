@@ -1,0 +1,34 @@
+[opener]
+image_editor_viewer = [
+    { run = 'imv "$@"', orphan = true, desc = "Open Image", for = "unix" }
+]
+extract = [
+    { run = '7z x "$1" -o"${1%.*}"', desc = "Extract to new subfolder" },
+    { run = '7z x "$1"', desc = "Extract here" }
+]
+play = [
+    { run = 'mpv "$@"', orphan = true, desc = "Play Media" }
+]
+office = [
+    { run = 'onlyoffice-desktopeditors "$@"', orphan = true, desc = "Open with ONLYOFFICE" }
+]
+
+[open]
+rules = [
+    { mime = "image/*", use = [ "image_editor_viewer", "open" ] }
+]
+prepend_rules = [
+    { url = "*.docx", use = "office" },
+    { url = "*.xlsx", use = "office" },
+    { url = "*.pptx", use = "office" },
+    { url = "*.pdf",  use = "office" },
+
+    { mime = "video/*", use = "play" },
+    { mime = "audio/*", use = "play" },
+
+    { url = "*.zip", use = "extract" },
+    { url = "*.rar", use = "extract" },
+    { url = "*.7z",  use = "extract" },
+    { url = "*.tar", use = "extract" },
+    { url = "*.gz",  use = "extract" }
+]

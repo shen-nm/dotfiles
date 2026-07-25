@@ -1,0 +1,17 @@
+// =============================================================================
+// MONITOR OUTPUTS & DISPLAY TOPOLOGY
+// =============================================================================
+
+output "eDP-1" {
+    mode "2560x1600@165.004"
+    scale 1.25
+    transform "normal"
+    variable-refresh-rate
+}
+
+output "HDMI-A-1" {
+    mode "2560x1440"
+    scale 1.0
+    transform "normal"
+    
+}

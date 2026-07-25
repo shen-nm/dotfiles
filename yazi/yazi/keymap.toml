@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on   = [ "c", "a" ] # Mapped to 'c' then 'a' (Compress Archive)
+run  = "plugin compress"
+desc = "Archive selected files"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "x" ]
+run  = 'shell "ouch decompress \"$@\" && notify-send -a Yazi -i package-x-generic \"Extraction Complete\" \"Finished unpacking archive.\"" --confirm'
+desc = "Extract archive here"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media"
+desc = "Go to mounted USB media"
