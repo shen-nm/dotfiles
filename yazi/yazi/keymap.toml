@@ -15,5 +15,5 @@ desc = "Go to mounted USB media"
 
 [[manager.prepend_keymap]]
 on   = [ "g", "s" ]
-run  = "plugin sshfs"
+run  = "plugin sshfs -- menu"
 desc = "Mount remote SSH server"
