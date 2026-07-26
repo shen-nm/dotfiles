@@ -1,0 +1,300 @@
+[backdrop]
+blur_intensity = 0.61999998614192009
+enabled = true
+tint_intensity = 0.22999999485909939
+
+[bar.default]
+background_opacity = 0.46999998949468136
+capsule_fill = "primary"
+end = [
+    "media",
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "input_volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+font_weight = 600
+margin_edge = 8
+margin_ends = 8
+start = [ "launcher", "wallpaper", "workspaces", "spacer_2", "audio_visualizer" ]
+
+[battery.device."/org/freedesktop/UPower/devices/mouse_dev_D2_70_7F_0D_C1_39"]
+warning_threshold = 10
+
+[brightness]
+enable_ddcutil = true
+
+[calendar]
+enabled = true
+
+    [calendar.account.primary_mailbox]
+    color = "on_surface"
+    name = "Primary"
+    provider = "custom"
+    server_url = "https://dav.mailbox.org/caldav/Y2FsOi8vMC8zMg"
+    type = "caldav"
+    username = "shen@shenmilan.com"
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 256.0
+    box_width = 560.0
+    cx = 352.0
+    cy = 1088.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        bands = 32
+        show_when_idle = true
+
+[dock]
+auto_hide = true
+background_opacity = 0.62999998591840267
+enabled = true
+icon_size = 37
+item_spacing = 20
+margin_edge = 10
+reserve_space = false
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 300.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = false
+    timeout = 660.0
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 64.0
+    box_width = 336.0
+    cx = 1280.0
+    cy = 864.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 0.0
+        input_opacity = 0.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = false
+        show_login_button = false
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 64.0
+    box_width = 336.0
+    cx = 1024.0
+    cy = 784.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 0.0
+        input_opacity = 0.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = false
+        show_login_button = false
+        show_password_hint = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 256.0
+    box_width = 368.0
+    cx = 1024.0
+    cy = 608.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        background_color = "primary"
+        background_opacity = 0.81000000000000005
+        background_radius = 13
+        center_text = true
+        clock_style = "digital"
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 48.0
+    box_width = 256.0
+    cx = 1024.0
+    cy = 720.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        center_text = true
+        clock_style = "digital"
+        format = "{:%d.%m.%Y }"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 224.0
+    box_width = 368.0
+    cx = 1280.0
+    cy = 688.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background = false
+        center_text = true
+        font_family = ""
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 48.0
+    box_width = 272.0
+    cx = 1280.0
+    cy = 800.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background = false
+        format = "{:%d.%m.%Y }"
+        shadow = false
+
+[osd]
+background_opacity = 0.80999998189508915
+offset_x = 10
+offset_y = 4
+scale = 0.90000000596046448
+
+[shell]
+avatar_path = "/home/shen/portfolio-site/assets/shenicon.png"
+niri_overview_type_to_launch_enabled = true
+polkit_agent = true
+
+    [shell.launcher]
+    session_search = true
+
+    [shell.panel]
+    borders = false
+    launcher_placement = "attached"
+    transparency_mode = "glass"
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "One Dark Two"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "muted"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "niri", "qt" ]
+    community_ids = [ "obsidian", "vscode", "discord", "papirus-icons", "steam", "yazi" ]
+
+[wallpaper]
+directory = "/home/shen/Wallpapers"
+
+    [wallpaper.default]
+    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+
+    [wallpaper.last]
+    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+
+[widget.audio_visualizer]
+width = 180
+
+[widget.brightness]
+enabled = true
+show_label = false
+
+[widget.clock]
+anchor = true
+enabled = true
+
+[widget.control-center]
+enabled = false
+
+[widget.input_volume]
+enabled = true
+show_label = false
+
+[widget.media]
+album_art_only = true
+art_size = 21
+hide_when_no_media = true
+max_length = 160
+
+[widget.network]
+show_label = false
+
+[widget.spacer_2]
+enabled = false
+length = 56
+type = "spacer"
+
+[widget.tray]
+drawer = true
+drawer_item_size = 18.0
+enabled = true
+
+[widget.wallpaper]
+enabled = false
