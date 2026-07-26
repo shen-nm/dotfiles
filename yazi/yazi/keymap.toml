@@ -12,3 +12,8 @@ desc = "Extract archive here"
 on   = [ "g", "m" ]
 run  = "cd /run/media"
 desc = "Go to mounted USB media"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "plugin sshfs"
+desc = "Mount remote SSH server"
