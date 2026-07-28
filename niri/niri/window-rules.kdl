@@ -35,6 +35,12 @@ window-rule {
     draw-border-with-background false
 }
 
+// fullscreen steam games
+window-rule {
+    match app-id=r#"^steam_app_"#
+    open-fullscreen true
+}
+
 // Fix Steam notifications popping up in the center of the screen
 window-rule {
     match app-id=r#"^[Ss]team$"# title=r#"^notificationtoasts"#
