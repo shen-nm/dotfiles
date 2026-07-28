@@ -42,7 +42,7 @@ binds {
     Mod+C              { center-column; }
     Mod+Ctrl+C         { center-visible-columns; }
     Mod+Shift+V        { toggle-window-floating; }
-    Mod+W              { toggle-column-tabbed-display; }
+    // Mod+W              { toggle-column-tabbed-display; }
 
     // Directional Window Focus (Vim keys + Arrows)
     Mod+Left  { focus-column-left; }
