@@ -9,6 +9,8 @@ binds {
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P     { power-off-monitors; }
     Mod+Escape      allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+Q     { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Mod+Shift+L     { spawn "noctalia" "msg" "session" "lock"; }
 
     // Core Applications Launchpad
     Mod+Return          hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
@@ -30,8 +32,6 @@ binds {
     XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-    Mod+Shift+Q           { spawn "noctalia" "msg" "panel-toggle" "session"; }
-    Mod+Shift+L           { spawn "noctalia" "msg" "session" "lock"; }
     
     // Window Management & Navigation Rules
     Mod+O repeat=false { toggle-overview; }
