@@ -34,7 +34,7 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
     
     // Window Management & Navigation Rules
-    Mod+O repeat=false { toggle-overview; }
+    Mod+W repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
     Mod+F              { maximize-column; }
     Mod+Shift+F        { fullscreen-window; }
