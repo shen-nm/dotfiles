@@ -41,6 +41,12 @@ window-rule {
     open-fullscreen true
 }
 
+// Fullscreen Youtube WebApp
+window-rule {
+    match app-id=r#"youtube"#
+    open-maximized true
+}
+
 // Fix Steam notifications popping up in the center of the screen
 window-rule {
     match app-id=r#"^[Ss]team$"# title=r#"^notificationtoasts"#
