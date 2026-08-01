@@ -36,10 +36,10 @@ window-rule {
 }
 
 // fullscreen steam games
-window-rule {
-    match app-id=r#"^steam_app_"#
-    open-fullscreen true
-}
+// window-rule {
+//    match app-id=r#"^steam_app_"#
+//    open-fullscreen true
+// }
 
 // Fullscreen Youtube WebApp
 window-rule {
