@@ -1,5 +1,5 @@
 # --- PATHS ---
-export EDITOR=vim
+export EDITOR=nvim
 export PATH="$PATH:/usr/lib/ccache/bin/:$HOME/.cargo/bin/:$HOME/.local/bin/"
 export XDG_SESSION_TYPE=wayland
 export MOZ_ENABLE_WAYLAND=1
