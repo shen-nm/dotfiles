@@ -12,6 +12,9 @@ play = [
 office = [
     { run = 'onlyoffice-desktopeditors "$@"', orphan = true, desc = "Open with ONLYOFFICE" }
 ]
+open = [
+  { run = 'xdg-open "$1"', desc = "Open with System Default", orphan = true, for = "linux" }
+]
 
 [open]
 rules = [
@@ -31,4 +34,7 @@ prepend_rules = [
     { url = "*.7z",  use = "extract" },
     { url = "*.tar", use = "extract" },
     { url = "*.gz",  use = "extract" }
+]
+append_rules = [
+  { url = "*", use = ["edit", "open"] }
 ]
