@@ -316,6 +316,22 @@ do
   --  A collection of various small independent plugins/modules
   vim.pack.add { gh 'nvim-mini/mini.nvim' }
 
+  -- [[ Left Sidebar File Explorer ]]
+  vim.pack.add {
+    gh 'MunifTanjim/nui.nvim',
+    gh 'nvim-neo-tree/neo-tree.nvim',
+  }
+
+  require('neo-tree').setup {
+    close_if_last_window = true, -- Close Neovim if the tree is the last window open
+    window = {
+      width = 30, -- Sidebar width
+    },
+  }
+
+  -- Keymap: Press Space + e to toggle the file tree sidebar
+  vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle [E]xplorer' })
+
   -- If a nerd font is available, load the icons module for pretty icons in various plugins.
   if vim.g.have_nerd_font then
     require('mini.icons').setup()
