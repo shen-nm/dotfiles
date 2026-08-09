@@ -6,7 +6,7 @@ output "eDP-1" {
     mode "2560x1600@165.004"
     scale 1.25
     transform "normal"
-    variable-refresh-rate
+    // variable-refresh-rate
 }
 
 output "HDMI-A-1" {
