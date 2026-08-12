@@ -28,6 +28,8 @@ alias vim='$EDITOR'
 alias wifi='nmtui'
 alias shutdown='systemctl poweroff'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias sysupdate='sudo pacman -Syu'
+alias install='sudo pacman -S'
 
 # --- GIT ALIASES ---
 alias gi="git init"
