@@ -9,7 +9,7 @@
 - Scripts
 - Wallpapers
 - Logid (logitech mouse settings)
-- NVim
+- Nvim
 
 
 ## Screenshots:
