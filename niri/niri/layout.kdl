@@ -2,6 +2,11 @@
 // LAYOUT ENGINE, WINDOW GEOMETRY & STYLING
 // =============================================================================
 
+layer-rule {
+  match namespace="^noctalia-.*"
+  place-within-backdrop true
+}
+
 layout {
     gaps 7
     center-focused-column "never"
@@ -36,11 +41,14 @@ layout {
     struts {
         // Define system margins if building panels external to Noctalia
     }
+
+    background-color "transparent"
 }
 
-layer-rule {
-  match namespace="^noctalia-backdrop"
-  place-within-backdrop true
+overview {
+    workspace-shadow { 
+        off
+    }
 }
 
 environment {
