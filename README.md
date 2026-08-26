@@ -10,6 +10,7 @@
 - Wallpapers
 - Logid (logitech mouse settings)
 - Nvim
+- Fastfetch
 
 
 ## Screenshots:
