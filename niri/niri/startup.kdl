@@ -3,8 +3,8 @@
 // =============================================================================
 
 // Core Wayland Display & Session Sync
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "XDG_SESSION_DESKTOP=niri"
-spawn-at-startup "sh" "-c" "while ! busctl --user status org.gnome.Mutter.ScreenCast >/dev/null 2>&1; do sleep 0.2; done; pkill -f xdg-desktop-portal-gnome"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=Niri:GNOME" "XDG_SESSION_DESKTOP=niri"
+spawn-at-startup "sh" "-c" "while ! busctl --user status org.gnome.Mutter.ScreenCast >/dev/null 2>&1; do sleep 0.2; done; systemctl --user restart xdg-desktop-portal-gnome"
 
 // XWayland Compatibility Layer 
 spawn-at-startup "xwayland-satellite"
