@@ -154,10 +154,10 @@ binds {
     Alt+Print   { screenshot-window; }
 
     // Noctalia Screenshot Engine
-    // Mod+Shift+S { spawn "noctalia" "msg" "screenshot-region"; }
+    Mod+Shift+S { spawn "noctalia" "msg" "screenshot-region"; }
 
     // Swappy Screenshots
-    Mod+Shift+S { spawn "sh" "-c" r#"grim -g "$(slurp)" - | swappy -f -"#; }
+    // Mod+Shift+S { spawn "sh" "-c" r#"grim -g "$(slurp)" - | swappy -f -"#; }
 
     // Scratchpad Binds
     // Toggles the scratchpad terminal in and out of view
