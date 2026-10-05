@@ -245,19 +245,19 @@ wallpaper_scheme = "muted"
     community_ids = [ "obsidian", "vscode", "discord", "papirus-icons", "steam", "yazi" ]
 
 [wallpaper]
-directory = "/home/shen/Wallpapers"
+directory = "/home/shen/wallpapers"
 
     [wallpaper.default]
-    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+    path = "/home/shen/wallpapers/muted-a_view_of_earth_from_a_space_station.png"
 
     [wallpaper.last]
-    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+    path = "/home/shen/wallpapers/muted-a_view_of_earth_from_a_space_station.png"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+    path = "/home/shen/wallpapers/muted-a_view_of_earth_from_a_space_station.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/shen/Wallpapers/muted-a_view_of_earth_from_a_space_station.png"
+    path = "/home/shen/wallpapers/muted-a_view_of_earth_from_a_space_station.png"
 
 [widget.audio_visualizer]
 width = 180

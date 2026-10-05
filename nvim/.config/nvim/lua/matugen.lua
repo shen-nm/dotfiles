@@ -5,7 +5,7 @@ function M.setup()
     base00 = '#1c1e21',
     base01 = '#2f3237',
     base02 = '#2a2d32',
-    base03 = '#66686f',
+    base03 = '#66696e',
     base04 = '#b0b2b5',
     base05 = '#f2f2f3',
     base06 = '#f2f2f3',
@@ -26,9 +26,9 @@ function M.setup()
 
   -- telescope.nvim
   hi('TelescopeNormal',         { fg = '#f2f2f3',          bg = '#1c1e21' })
-  hi('TelescopeBorder',         { fg = '#66686f',             bg = '#1c1e21' })
+  hi('TelescopeBorder',         { fg = '#66696e',             bg = '#1c1e21' })
   hi('TelescopePromptNormal',   { fg = '#f2f2f3',          bg = '#1c1e21' })
-  hi('TelescopePromptBorder',   { fg = '#66686f',             bg = '#1c1e21' })
+  hi('TelescopePromptBorder',   { fg = '#66696e',             bg = '#1c1e21' })
   hi('TelescopePromptPrefix',   { fg = '#a2a4aa',             bg = '#1c1e21' })
   hi('TelescopePromptCounter',  { fg = '#b0b2b5',  bg = '#1c1e21' })
   hi('TelescopePromptTitle',    { fg = '#1c1e21',             bg = '#a2a4aa' })
@@ -40,7 +40,7 @@ function M.setup()
 
   -- mini.pick
   hi('MiniPickNormal',         { fg = '#f2f2f3',          bg = '#1c1e21' })
-  hi('MiniPickBorder',         { fg = '#66686f',             bg = '#1c1e21' })
+  hi('MiniPickBorder',         { fg = '#66696e',             bg = '#1c1e21' })
   hi('MiniPickPrompt',   { fg = '#f2f2f3',          bg = '#1c1e21' })
   hi('MiniPickPromptPrefix',   { fg = '#a2a4aa',             bg = '#1c1e21' })
   hi('MiniPickBorderText',    { fg = '#1c1e21',             bg = '#a2a4aa' })

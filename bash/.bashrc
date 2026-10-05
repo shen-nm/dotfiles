@@ -67,13 +67,6 @@ mkcd() {
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
 # Source the Arch Linux native fzf key-bindings
-if [ -n "$BASH_VERSION" ]; then
-    source /usr/share/fzf/key-bindings.bash
-    source /usr/share/fzf/completion.bash
-elif [ -n "$ZSH_VERSION" ]; then
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-fi
 
 # --- AUTOSTART ---
 if [[ $(tty) == *"pts"* ]]; then
