@@ -28,9 +28,14 @@ alias vim='$EDITOR'
 alias wifi='nmtui'
 alias shutdown='systemctl poweroff'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias sysupdate='sudo pacman -Syu'
-alias install='sudo pacman -S'
 
+# --- NIXOS ALIASES ---
+alias nixrs='sudo nixos-rebuild switch --flake /etc/nixos#nixos'
+alias nixrt='sudo nixos-rebuild test --flake /etc/nixos#nixos' # Test build without making it default boot
+alias nixcd='cd ~/nixos'                             # Jump straight to your Nix configs
+alias nixfu='nix flake update ~/nixos'               # Update all flake input locks
+alias nixclean='sudo nix-collect-garbage -d'                     # Clean old system generations
+  
 # --- GIT ALIASES ---
 alias gi="git init"
 alias gb="git branch -M main"
