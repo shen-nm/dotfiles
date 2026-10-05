@@ -17,3 +17,5 @@ spawn-at-startup "noctalia"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
 
 spawn-at-startup "udiskie"
+
+spawn-at-startup "easyeffects"
