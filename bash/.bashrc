@@ -55,6 +55,7 @@ alias jarvis="~/.local/bin/odysseus-runner.sh"
 alias upload-music="mv ~/Music/Temp-sync/* ~/Music/Library/ && flac2mp3.sh && sync-music.sh"
 alias cdniri="cd ~/.config/niri/"
 alias lg="lazygit"
+alias atm10="cd ~/Games/atm10-server/ServerFiles-8.2 && nix-shell -p jdk21 --run 'bash startserver.sh'"
 
 # --- TERMINAL TEXT ---
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/config.toml)"
