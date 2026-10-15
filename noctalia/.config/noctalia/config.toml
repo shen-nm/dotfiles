@@ -130,7 +130,6 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = false
         show_login_button = false
-        show_password_hint = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 64.0
@@ -150,7 +149,6 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = false
         show_login_button = false
-        show_password_hint = false
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
@@ -226,7 +224,6 @@ niri_overview_type_to_launch_enabled = true
 polkit_agent = true
 
     [shell.launcher]
-    session_search = true
 
     [shell.panel]
     borders = false
