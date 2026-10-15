@@ -9,11 +9,11 @@ extract = [
 play = [
     { run = 'mpv "$@"', orphan = true, desc = "Play Media" }
 ]
-office = [
-    { run = 'onlyoffice-desktopeditors "$@"', orphan = true, desc = "Open with ONLYOFFICE" }
+pdf = [
+    { run = 'zathura "$@"', orphan = true, desc = "Open PDF" }
 ]
 open = [
-  { run = 'xdg-open "$1"', desc = "Open with System Default", orphan = true, for = "linux" }
+    { run = 'xdg-open "$1"', desc = "Open with System Default", orphan = true, for = "linux" }
 ]
 
 [open]
@@ -21,10 +21,10 @@ rules = [
     { mime = "image/*", use = [ "image_editor_viewer", "open" ] }
 ]
 prepend_rules = [
-    { url = "*.docx", use = "office" },
-    { url = "*.xlsx", use = "office" },
-    { url = "*.pptx", use = "office" },
-    { url = "*.pdf",  use = "office" },
+    { url = "*.pdf",  use = [ "pdf", "open" ] },
+    { url = "*.docx", use = "open" },
+    { url = "*.xlsx", use = "open" },
+    { url = "*.pptx", use = "open" },
 
     { mime = "video/*", use = "play" },
     { mime = "audio/*", use = "play" },
@@ -36,5 +36,5 @@ prepend_rules = [
     { url = "*.gz",  use = "extract" }
 ]
 append_rules = [
-  { url = "*", use = ["edit", "open"] }
+    { url = "*", use = [ "edit", "open" ] }
 ]
