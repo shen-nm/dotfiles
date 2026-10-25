@@ -1,40 +1,47 @@
 [opener]
-image_editor_viewer = [
-    { run = 'imv "$@"', orphan = true, desc = "Open Image", for = "unix" }
+edit = [
+    { run = '${EDITOR:-micro} %s', block = true, desc = "Edit", for = "unix" },
 ]
-extract = [
-    { run = '7z x "$1" -o"${1%.*}"', desc = "Extract to new subfolder" },
-    { run = '7z x "$1"', desc = "Extract here" }
+image = [
+    { run = 'imv %s', orphan = true, desc = "Open Image", for = "unix" },
 ]
 play = [
-    { run = 'mpv "$@"', orphan = true, desc = "Play Media" }
+    { run = 'mpv %s', orphan = true, desc = "Play Media", for = "unix" },
 ]
 pdf = [
-    { run = 'zathura "$@"', orphan = true, desc = "Open PDF" }
+    { run = 'zathura %s', orphan = true, desc = "Open PDF", for = "unix" },
+]
+extract = [
+    { run = 'ouch decompress %s', desc = "Extract with ouch", for = "unix" },
+    { run = '7z x %s1 -o"%s1%.*"', desc = "Extract to subfolder with 7z", for = "unix" },
+    { run = '7z x %s1', desc = "Extract here with 7z", for = "unix" },
 ]
 open = [
-    { run = 'xdg-open "$1"', desc = "Open with System Default", orphan = true, for = "linux" }
+    { run = 'xdg-open %s1', desc = "Open with System Default", orphan = true, for = "unix" },
 ]
 
 [open]
-rules = [
-    { mime = "image/*", use = [ "image_editor_viewer", "open" ] }
-]
 prepend_rules = [
-    { url = "*.pdf",  use = [ "pdf", "open" ] },
-    { url = "*.docx", use = "open" },
-    { url = "*.xlsx", use = "open" },
-    { url = "*.pptx", use = "open" },
+    # Images -> imv
+    { mime = "image/*", use = [ "image", "open" ] },
+    { url = "*.{png,jpg,jpeg,webp,avif,bmp,gif,svg}", use = [ "image", "open" ] },
 
-    { mime = "video/*", use = "play" },
-    { mime = "audio/*", use = "play" },
+    # PDFs -> zathura
+    { mime = "application/pdf", use = [ "pdf", "open" ] },
+    { url = "*.pdf", use = [ "pdf", "open" ] },
 
-    { url = "*.zip", use = "extract" },
-    { url = "*.rar", use = "extract" },
-    { url = "*.7z",  use = "extract" },
-    { url = "*.tar", use = "extract" },
-    { url = "*.gz",  use = "extract" }
+    # Office Docs -> system default (Vivaldi/Google Docs)
+    { url = "*.{docx,xlsx,pptx}", use = "open" },
+
+    # Media -> mpv
+    { mime = "video/*", use = [ "play" ] },
+    { mime = "audio/*", use = [ "play" ] },
+    { url = "*.{mp4,mkv,webm,avi,mov,flv,mp3,wav,flac,ogg,m4a}", use = [ "play" ] },
+
+    # Archives -> extraction tools
+    { mime = "application/{zip,rar,7z*,tar*,gzip,xz,zstd,bzip*}", use = [ "extract" ] },
+    { url = "*.{zip,rar,7z,tar,gz,xz,zst,bz2}", use = [ "extract" ] },
 ]
 append_rules = [
-    { url = "*", use = [ "edit", "open" ] }
+    { url = "*", use = [ "edit", "open" ] },
 ]
