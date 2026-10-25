@@ -63,6 +63,8 @@ eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/config.toml)"
 
 # --- MUSIC ---
 alias get-music='~/.local/bin/get-music.sh'
+alias music-pull="rsync -avP root@192.168.8.100:/mnt/data/music/ ~/Music/Library/"
+alias music-push="rsync -avP --delete ~/Music/Library/ root@192.168.8.100:/mnt/data/music/"
 
 # --- CUSTOM COMMANDS ---
 mkcd() {
