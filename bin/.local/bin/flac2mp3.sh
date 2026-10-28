@@ -1,32 +1,36 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Configuration
 SOURCE_DIR="$HOME/Music/Library"
 BITRATE="320k"
-# Get the number of CPU cores to run conversions in parallel
 CORES=$(nproc)
+
+# Export BITRATE so parallel subshells inherit it cleanly
+export BITRATE
 
 echo "Starting Parallel Conversion ($CORES cores)..."
 
-# Use find to feed files into xargs
-# -0 handles spaces/special characters in filenames correctly
-# -P $CORES runs multiple ffmpeg instances at once
-find "$SOURCE_DIR" -name "*.flac" -type f -print0 | xargs -0 -P "$CORES" -I {} bash -c '
+# Convert FLAC to 320k MP3 in parallel
+find "$SOURCE_DIR" -type f -iname "*.flac" -print0 | xargs -0 -P "$CORES" -n 1 bash -c '
     input="$1"
-    output="${input%.flac}.mp3"
-    
+    output="${input%.*}.mp3"
+
     echo "Processing: $(basename "$input")"
-    
-    # -n: skip if exists | -map_metadata 0: copy Picard tags
-    # -id3v2_version 3: Windows/Mobile compatibility
-    ffmpeg -loglevel error -n -i "$input" -ab '$BITRATE' \
-           -map_metadata 0 -id3v2_version 3 \
-           "$output" && rm "$input"
-' -- {}
+
+    # -n: skip if output exists
+    # -map 0:a -map 0:v?: preserves audio AND embedded album art
+    # -c:a libmp3lame -b:a: modern ffmpeg audio bitrate syntax
+    # -id3v2_version 3: ensures broad player compatibility
+    ffmpeg -loglevel error -n -i "$input" \
+        -map 0:a -map 0:v? -c:a libmp3lame -b:a "$BITRATE" -c:v copy \
+        -map_metadata 0 -id3v2_version 3 \
+        "$output" && rm "$input"
+' _
 
 echo "All FLACs converted and original files removed."
 
-# --- NEW CLEANUP STEP ---
+# --- CLEANUP STEP ---
 echo "Scrubbing junk files (.lrc, .txt) from library..."
 find "$SOURCE_DIR" -type f \( -name "*.lrc" -o -name "*.txt" \) -delete
+
 echo "Cleanup complete!"
